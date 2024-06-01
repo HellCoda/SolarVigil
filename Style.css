@@ -2247,44 +2247,43 @@ h1 {
 }
 
 :root {
-  --mercury-image: url(planets/mercury2.png
-  );
+  --mercury-image: url(Planets/mercury2.png);
   --mercury-tilt: rotate(0.034deg);
   --mercury-day: 1407.6;
   --mercury-color: #999999;
-  --venus-image: url(planets/venus.png);
+  --venus-image: url(Planets/venus.png);
   --venus-tilt: rotate(177.3deg);
   --venus-day: 5832.5;
   --venus-color: #e8cda2;
-  --earth-image: url(planets/earth.png);
+  --earth-image: url(Planets/earth.png);
   --earth-tilt: rotate(23.26deg);
   --earth-day: 23.9;
   --earth-color: #b3caff;
-  --mars-image: url(planets/mars.png);
+  --mars-image: url(Planets/mars.png);
   --mars-tilt: rotate(25.2deg);
   --mars-day: 24.6;
   --mars-color: #c07158;
-  --jupiter-image: url(planets/jupiter.png);
+  --jupiter-image: url(Planets/jupiter.png);
   --jupiter-tilt: rotate(3.1deg);
   --jupiter-day: 29.9;
   --jupiter-color: #c9b5a4;
-  --saturn-image: url(planets/saturn.png);
+  --saturn-image: url(Planets/saturn.png);
   --saturn-tilt: rotate(26.7deg);
   --saturn-day: 10.7;
   --saturn-color: #f0e2c4;
-  --uranus-image: url(planets/uranus2.png);
+  --uranus-image: url(Planets/uranus2.png);
   --uranus-tilt: rotate(277.8deg);
   --uranus-day: 17.2;
   --uranus-color: #b8d8e1;
-  --neptune-image: url(planets/neptune.png);
+  --neptune-image: url(Planets/neptune.png);
   --neptune-tilt: rotate(28.3deg);
   --neptune-day: 16.1;
   --neptune-color: #5e73bb;
-  --pluto-image: url(planets/pluto.png);
+  --pluto-image: url(Planets/pluto.png);
   --pluto-tilt: rotate(122.5deg);
   --pluto-day: 153.3;
   --pluto-color: #c3b6aa;
-  --sun-image: url(planets/sun.png);
+  --sun-image: url(Planets/sun.png);
   --sun-tilt: rotate(0deg);
   --sun-day: 600;
   --sun-color: #cc9f4c;
