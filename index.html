@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#video{
+position: absolute;
+width: 35%; 
+top: 50%; 
+left: 50%;
+z-index: 2;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+}
+
+#porte {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 1;
+visibility: visible;
+}
+
+#bandeau-haut {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 7%;
+background-image: url("creationlogo/texture.PNG"); 
+background-repeat: repeat; 
+background-size: cover;
+border-bottom: 1.2em solid;
+border-image: linear-gradient(
+to right, /* On définit la direction du dégradé */
+#66ffcc 50%, /* On définit la première couleur et sa position (50% de la largeur de la bordure) */
+#006387 50% /* On définit la deuxième couleur et sa position (50% de la largeur de la bordure) */
+) 0 0 1 0;
+}
+
+#bandeau-bas {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 7%;
+background-image: url("creationlogo/texture.PNG"); 
+background-repeat: repeat; 
+background-size: cover;
+display: flex; 
+justify-content: space-between;
+border-top: 1.2em solid;
+border-image: linear-gradient(
+to right, 
+#ffff00 50%, 
+#ff0000 50% 
+) 1 0 0 0;
+}
+
+#porte-gauche {
+position: absolute;
+top: 7.5%;
+left: 0;
+width: 50%;
+height: 85%;
+background-image: url("Univers/space.png"); 
+background-repeat: repeat; 
+background-size: cover; 
+box-shadow: inset 0 0 0px #000; 
+}
+
+
+#porte-droite {
+position: absolute;
+top:7.5%;
+right: 0;
+width: 50%;
+height: 85%;
+background-image: url("Univers/space.png");  
+background-repeat: repeat; 
+background-size: cover;  
+box-shadow: inset 0 0 0px #000;
+}
+
+#title{
+font-family: calibri;
+color: #ffffff; 
+font-weight: bold; 
+font-size: 22px;
+text-align: center; 
+margin: 0 auto; 
+position: absolute; 
+top: 50%; 
+left: 50%; 
+transform: translateX(-50%) translateY(-50%); 
+}
+
+#credit{
+font-family: calibri;
+color: #ffffff; 
+font-size: 16px;
+font-weight: bold;
+text-align: center; 
+}
+
+#participant{
+font-family: calibri;
+color: #ffffff; 
+font-weight: bold; 
+font-size: 16px;
+text-align: center; 
+position: relative; 
+}
+
+#libre{
+font-family: calibri;
+color: #ffffff; 
+font-size: 16px;
+font-weight: bold;
+text-align: center; 
+}
+
+body {
+display: flex;
+align-items: center; 
+justify-content: center; 
+}
+
+#participant span {
+display: none; 
+position: absolute; 
+bottom: 0; 
+left: 100%; 
+width: 300px; 
+height: 20px; 
+background-color: #303030; 
+font-size: 14px;
+color: white; 
+border: 1px solid white; 
+border-radius: 5px; 
+transition: 0.5s; 
+}
+
+#participant:hover span {
+display: block; 
+transform: scale(1.2); 
+top: -10px; 
+}
+
+#btn1 {
+position: absolute;
+top: 50%;
+left: 25%;
+transform: translate(-50%, -50%);
+width: 150px;
+height: 50px;
+background-image: url("creationlogo/texture.PNG"); 
+color: white;
+border: 2px solid; 
+font-family: calibri;
+font-size: 16px;
+border-image: linear-gradient(
+to bottom right,
+#66ffcc 10%, 
+#006387 25%, 
+yellow 50%, 
+red 85% 
+) 1; 
+}
+
+#btn2 {
+position: absolute;
+top: 50%;
+left: 75%;
+transform: translate(-50%, -50%);
+width: 150px;
+height: 50px;
+background-image: url("creationlogo/texture.PNG"); 
+color: white;
+border: 2px solid; 
+font-family: calibri;
+font-size: 16px;
+border-image: linear-gradient(
+to bottom right,
+#66ffcc 10%, 
+#006387 25%, 
+yellow 50%, 
+red 85% 
+) 1; 
+}
+
+#btn1:hover, #btn2:hover {
+/* On change la couleur de fond et de bordure */
+background-color:#ffffff38;
+border-color: white;
+/* On ajoute une ombre blanche autour du bouton */
+box-shadow: 0 0 10px white;
+}
+
+button:hover {
+/* On rend le fond transparent */
+background-color:#ffffff38;
+/* On rend la bordure blanche */
+border-color: white;
+}
+
+#dialog {
+display: none; 
+position: fixed; 
+top: 50%; 
+left: 50%; 
+transform: translate(-50%, -50%); 
+width: 300px; 
+height: 150px; 
+background-color: #303030; 
+border: 2px solid rgb(255, 255, 255); 
+border-radius: 10px; 
+z-index: 3; 
+}
+
+#dialog-text {
+font-family: calibri;
+color: #ffffff;
+font-size: 18px;
+text-align: center;
+margin: 20px;
+}
+
+#dialog-button {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+width: 100px;
+height: 40px;
+background-color: #303030;
+color: #ffffff;
+border: 2px solid rgb(255, 255, 255);
+border-radius: 5px;
+font-family: calibri;
+font-size: 16px;
+}
+#dialog-button:hover {
+/* On rend le fond transparent */
+background-color:#ffffff38;
+/* On rend la bordure blanche */
+border-color: white;
+}
+
+#overlay {
+display: none; 
+position: fixed; 
+top: 0; 
+left: 0; 
+width: 100%; 
+height: 100%; 
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 2; 
+
+background-image: 
+repeating-linear-gradient(
+-45deg, 
+transparent, 
+transparent 5px, 
+rgba(255, 255, 255, 0.500) 10px, 
+rgba(0, 0, 0, 0.500) 5px 
+);
+}
+
+</style>
+</head>
+<body>
+
+<video id="video" src="creationlogo/logo.mp4" autoplay loop muted></video>
+<div id="porte">
+<div id="bandeau-haut">
+<p id="title">L ÉSPACE FAIT SA METEO</p>
+</div>
+
+<div id="bandeau-bas">
+
+<p id="participant">
+    # PARTICIPANTS ?
+    <span>Professeur de Science <----> Classe de Science</span> 
+</p>
+<p id="credit">
+© Crédits : Projet Scolaire
+</p>
+
+<p id="libre">
+# OPEN SOURCE .
+</p>
+</div>
+
+<div id="porte-gauche">
+    <button id="btn1"  onclick="goToVideoPage()" >LE FILM</button>
+</div>
+<div id="porte-droite">
+    <button id="btn2"  onclick="goTosolarsystem()" >SYTEME SOLAIRE 3D</button>
+</div>
+</div>
+<div id="dialog">
+    <p id="dialog-text">Voulez-vous passer en mode plein écran ?</p>
+    <button id="dialog-button">Oui</button>
+    </div>
+    <div id="overlay"></div>
+<script>
+
+function goToVideoPage() {
+window.location.href = "LeFilm.html";
+}
+
+function goTosolarsystem() {
+window.location.href = "SolarSystem.html";
+}
+
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+
+if (elem.requestFullscreen) {
+elem.requestFullscreen();
+} else if (elem.webkitRequestFullscreen) { 
+elem.webkitRequestFullscreen();
+} else if (elem.msRequestFullscreen) { 
+elem.msRequestFullscreen();
+}
+}
+
+
+var dialog = document.getElementById("dialog");
+var overlay = document.getElementById("overlay");
+var dialogButton = document.getElementById("dialog-button");
+
+
+function showDialog() {
+dialog.style.display = "block";
+overlay.style.display = "block";
+}
+
+
+function hideDialog() {
+dialog.style.display = "none";
+overlay.style.display = "none";
+}
+
+
+window.addEventListener("load", showDialog);
+
+
+dialogButton.addEventListener("click", function() {
+openFullscreen();
+hideDialog();
+});
+</script>
+
+</body>
+</html>
